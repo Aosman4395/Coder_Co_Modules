@@ -8,8 +8,8 @@ Below is a list of the modules and what they contain:
 
 | Module | Description |
 |--------|-------------|
-| `Bash/` | Bash scripting exercises 
-| `Networking-Assignment/` | My network assignment
+|[`Bash/`]((https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Bash) | Bash scripting exercises 
+|[`Networking-Assignment/`](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Networking-Assigment) | My network assignment
 
 
 ## How to Use This Repo
