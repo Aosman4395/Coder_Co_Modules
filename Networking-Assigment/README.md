@@ -79,8 +79,81 @@ Once both were updated, I successfully SSH’d into my EC2 instance using:
 Before connecting, I also reviewed the EC2 Connect Page on the AWS console, which provides detailed SSH instructions.
 It’s important to follow this page carefully to ensure your connection works properly.
 
-⚠️  Make sure to give your .pem file the correct permissions before connecting:
+⚠️  Make sure to give your .pem file the correct permissions before connecting, make sure you are in the same directory as where your pem file is saved and the follow the instructions:
 
 `chmod 400 n-assignment.pem`
 
 `ssh -i n-assignment.pem ubuntu@<public-ip-address>`
+
+screenshot of the connect page
+
+## 🖥️ Step 4 — Installing NGINX on the EC2 Instance
+
+After connecting to my EC2 instance, I attempted to install **NGINX** using my **Ubuntu VM**. 
+
+`sudo apt update`
+`sudo apt install nginx -y`
+However, I kept encountering the error:
+
+“E: Unable to locate package nginx”
+or “file not found”
+
+Even after running sudo apt update, the installation would not proceed.
+
+To resolve this, I switched to Windows Terminal on my host machine and SSH’d into the EC2 instance from there:
+From Windows Terminal, the installation worked successfully and i ran the following:
+
+`sudo apt update`
+`sudo apt install nginx -y`
+`sudo systemctl start nginx`
+`sudo systemctl enable nginx`
+`sudo systemctl status nginx`
+Once I confirmed that NGINX was active and running, I returned to my Ubuntu VM to continue working on the assignment and tested to see if it was active which it was:
+
+SCREENSHOT
+
+## 🔍 Step 5 — Testing the Domain Connection
+
+After installing NGINX and ensuring it was running, I needed to confirm that my domain was correctly pointing to my EC2 instance.  
+I performed a **DNS lookup** using the following commands:
+
+```bash
+nslookup nginx.ahmedo.co.uk
+dig nginx.ahmedo.co.uk
+curl nginx.ahmedo.co.uk
+```
+SCREENSHOT
+
+## 🌐 Step 6 — Accessing the NGINX Page via Domain
+
+Once the DNS was configured, I opened a web browser and searched for my domain:
+
+> `nginx.ahmedo.co.uk`
+
+The page loaded successfully, confirming that my domain was correctly pointing to the EC2 instance.  
+At this stage, the website displayed the **default NGINX page**, which indicated that NGINX was running properly, but I still needed to replace it with my **custom page**.
+
+![Default NGINX Page](screenshots/nginx_default_page.png)
+
+## 🎨 Step 7 — Creating a Custom Page
+
+After confirming that the default NGINX page was loading, I replaced it with my **custom HTML page** to reflect the assignment work.
+
+First, I removed the default NGINX page:
+
+`sudo rm /var/www/html/index.nginx-debian.html`
+
+Then, I created my custom page at `/var/www/html/index.html` with the following content displayed on the website:
+
+SCREENSHOT
+
+## 🧠 What I Learned
+
+Completing this assignment gave me practical experience in deploying and managing cloud infrastructure.  
+
+I learned how to **set up an AWS EC2 instance**, select an appropriate AMI, and configure a key pair to securely connect via SSH. I also gained hands-on experience with **security groups and network ACLs**, ensuring both SSH and HTTP traffic could reach the instance safely.  
+
+Through installing NGINX, I learned how to manage web server software on a cloud instance and troubleshoot installation issues when initial attempts failed. Configuring a custom domain via Namecheap taught me how **DNS records and public IPs work together** to make a website accessible globally.  
+
+Finally, creating a custom web page and replacing the default NGINX page reinforced my understanding of web server deployment, file management on a Linux server, and connecting a live webpage to a domain. Testing connectivity with tools like `nslookup`, `dig`, and `curl` solidified my grasp of networking fundamentals in practice.
+
