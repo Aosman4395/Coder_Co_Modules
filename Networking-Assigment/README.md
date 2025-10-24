@@ -1,131 +1,88 @@
-# 🖥️ Networking Assignment — AWS EC2, Nginx, and Custom Domain Setup
+# 🧾 Assignment Brief
 
-## 📘 Overview
-This assignment demonstrates how I set up an AWS EC2 instance, installed and configured Nginx, and connected it to a custom domain purchased from Namecheap.  
-The project shows my understanding of how networking, DNS, and server configurations work together to host a functional website on the cloud.
+**Task:**  
+Buy your own domain via **Cloudflare** or **AWS Route53**.  
 
----
-## ⚙️ Technologies Used
-- **AWS EC2 (Ubuntu Linux)** — Virtual machine hosting the web server  
-- **Nginx** — Web server software  
-- **Namecheap** — Domain registrar  
-- **SSH** — Secure access to the EC2 instance  
-- **Windows Terminal & Ubuntu VM** — Used for connection and installation  
-- **GitHub** — Documentation and version control  
+Create an **EC2 instance** running **NGINX** on port **80**.  
+Add an **A Record** to Cloudflare or Route53 and point it to your EC2 instance.  
 
----
-## 🏗️ Project Steps
+You should be able to access the NGINX webpage using your domain — for example:  
+> `nginx.luqman.co.uk`
 
-### 1️⃣ Set Up EC2 Instance
-I started by launching an **Ubuntu EC2 instance** on AWS.  
-During setup, I:
-- Selected a key pair and downloaded the `.pem` file for SSH access.  
-- Allowed **inbound rules** for **SSH (port 22)** and **HTTP (port 80)**.  
-- Ensured **outbound rules** allowed all traffic.  
+## 📘 Introduction
 
-Initially, I had a problem connecting to the instance because the **Network ACL (NACL)** was blocking SSH. After editing the NACL to allow inbound and outbound SSH traffic, the connection worked.
+This README is a **demonstration** of how I completed the networking assignment.  
+It provides a **step-by-step outline** of the process I followed to successfully set up and connect my EC2 instance to a custom domain.
 
-![EC2 Dashboard](screenshots/ec2_dashboard.png)
-![Security Groups](screenshots/security_group.png)
+Initially, I attempted to use **Cloudflare** and **AWS Route53** for my domain setup, but due to configuration and access issues, they did not work as expected.  
+As a result, I decided to use **Namecheap** for my DNS management, which allowed me to configure my domain records smoothly.
+## 🪩 Step 1 — Setting Up the EC2 Instance
 
----
-### 2️⃣ Connect to the Instance Using SSH
-Before connecting, I made sure I was in the same directory as my `.pem` file.  
-Then I ran:
+I began by setting up a new **Amazon EC2 instance**.  
+From the AWS Management Console, I navigated to **EC2** and clicked **“Launch Instance.”**
 
-```bash
-cd /path/to/pemfile
-ssh -i n-assignment.pem ubuntu@<ec2-public-ip>
+I selected the following configuration:
+- **Name:** Networking-Assignment  
+- **AMI:** Ubuntu Server (latest version)  
+- **Instance Type:** t2.micro (Free Tier eligible)  
+- **Key Pair:** Created a new key pair and downloaded the `.pem` file for SSH access  
 
----
+> ⚠️ Selecting a key pair is **essential**, as it allows you to securely connect to your EC2 instance later using SSH.
 
-### **Section 5 — Step 3 & 4: Domain & Elastic IP**
+Once launched, my instance was up and running successfully.  
+At this stage, it’s important to **take note of the Public IPv4 Address**, as it will be used to connect your EC2 instance to your custom domain.
 
-```markdown
-### 3️⃣ Purchase and Configure Domain
-After confirming my instance was running, I purchased a domain from **Namecheap** — `ahmedo.co.uk`.  
-I then created a subdomain called **nginx.ahmedo.co.uk** and set up the DNS configuration:  
-- Type: **A Record**  
-- Host: **nginx**  
-- Value: **Elastic IP address** of my EC2 instance  
-- TTL: **Automatic**
+🖼️ *Screenshot:* `ec2_connect_page.png` (Shows the instance running and the public IP address)
+## 🌐 Step 2 — Purchasing the Domain and Configuring DNS
 
-This linked my domain name to my EC2 instance’s IP address.
+For this step, I purchased my own domain from **Namecheap** — `ahmedo.co.uk`.  
 
-![Namecheap DNS](screenshots/namecheap_dns.png)
+Since the assignment required the use of **NGINX**, I created a **subdomain** with the host name `nginx`.  
+This means my website would be accessible at **nginx.ahmedo.co.uk**.
 
----
+In the Namecheap DNS settings:
+- **Type:** A Record  
+- **Host:** nginx  
+- **Value:** (Public IPv4 address of my EC2 instance)  
+- **TTL:** 300 seconds (5 minutes)  
 
-### 4️⃣ Allocate Elastic IP
-I assigned an **Elastic IP** to my EC2 instance to ensure it kept the same public IP even if the instance restarted.  
-This was necessary for the domain connection to stay consistent.
+This A record connects my domain to my EC2 instance, allowing anyone who visits the domain to reach the NGINX web server hosted on my instance.
 
-![Elastic IP](screenshots/elastic_ip.png)
+🖼️ *Screenshot:* `namecheap_dns.png` (Shows the Namecheap DNS A record setup)
 
----
-### 5️⃣ Install Nginx (Troubleshooting Process)
-I first tried installing Nginx from my **Ubuntu VM** (running on my Windows laptop) after SSH’ing into the EC2 instance.  
-Even though the network settings looked correct, the installation failed — I kept getting errors like:
+## 🔐 Step 3 — Connecting to the EC2 Instance (SSH Access)
 
-> “E: Unable to locate package nginx”
+Once my EC2 instance was running, I attempted to **SSH** into it through the terminal using my `.pem` key file.  
+However, I encountered a problem — the connection kept being **refused** and would not allow me to access the instance.
 
-I then switched to my **Windows Terminal** and SSH’d into the EC2 instance using the same key.  
-From there, the commands worked perfectly, and Nginx installed successfully.
+To troubleshoot this, I checked my **security group settings** and realised that **SSH (port 22)** traffic was not properly allowed.  
+I edited the **inbound rules** to include the following:
 
-```bash
-ssh -i n-assignment.pem ubuntu@<ec2-public-ip>
-sudo apt update
-sudo apt install nginx -y
-sudo systemctl start nginx
-sudo systemctl enable nginx
-sudo systemctl status nginx
+- **Type:** SSH  
+- **Protocol:** TCP  
+- **Port Range:** 22  
+- **Source:** My IP  
 
----
+Even after updating the security group, I still could not connect.  
+After further investigation, I discovered that my **Network ACL (NACL)** was also blocking SSH traffic.  
+I updated the NACL rules to allow inbound and outbound connections for **port 22** as well.  
 
-### **Section 7 — Step 6: Customize Page & Reload Nginx**
+🖼️ *Screenshot 1:* `security_groups.png` (Shows the security group inbound rules allowing SSH)
+🖼️**Screenshot 2:* `nacl_rules.png` (Shows the NACL rules configured to allow SSH)
 
-```markdown
-### 6️⃣ Customize the Web Page
-When I visited the domain, it initially showed the **default Nginx page**, and I couldn’t edit it because of permissions and default configuration restrictions.  
-To fix this, I removed the default file and created my own **custom HTML file**.
+
+Once both were updated, I successfully SSH’d into my EC2 instance using:
+
+Before connecting, I also reviewed the EC2 Connect Page on the AWS console, which provides detailed SSH instructions.
+It’s important to follow this page carefully to ensure your connection works properly.
+
+⚠️  Make sure to give your .pem file the correct permissions before connecting:
 
 ```bash
-# Remove default Nginx page
-sudo rm /var/www/html/index.nginx-debian.html
-
-# Create your custom HTML page
-sudo nano /var/www/html/index.html
-
----
-
-### **Section 8 — Step 7: Test Domain Connection**
-
-```markdown
-### 7️⃣ Test the Domain Connection
-To confirm the connection between my domain and EC2 instance, I used the following commands:
+chmod 400 n-assignment.pem
 
 ```bash
-nslookup nginx.ahmedo.co.uk
-dig nginx.ahmedo.co.uk
-curl nginx.ahmedo.co.uk
+ssh -i n-assignment.pem ubuntu@<public-ip-address>
 
----
+🖼️ *Screenshot:* `ec2_connect_page.png` (Shows the EC2 Connect instructions)
 
-### **Section 9 — What I Learned & Repository**
-
-```markdown
-## 🧠 What I Learned
-Through this assignment, I learned how to:
-- Set up and connect to an **AWS EC2 instance**  
-- Configure **Security Groups**, **NACLs**, and **Elastic IPs**  
-- Troubleshoot SSH connection issues  
-- Install and configure **Nginx** web server  
-- Understand how **networking, DNS, and domains** work together  
-- Configure **A records** in Namecheap to connect a domain to a server  
-- Test DNS and domain connectivity using **nslookup** and **dig**  
-- Replace default web content with a **custom Nginx page**
-
----
-
-## 🧾 Repository
-**GitHub Repository:** [Networking Assignment Repo](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Networking-Assigment)
