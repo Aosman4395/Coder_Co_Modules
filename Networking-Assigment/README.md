@@ -92,7 +92,9 @@ screenshot of the connect page
 After connecting to my EC2 instance, I attempted to install **NGINX** using my **Ubuntu VM**. 
 
 `sudo apt update`
+
 `sudo apt install nginx -y`
+
 However, I kept encountering the error:
 
 “E: Unable to locate package nginx”
@@ -103,11 +105,16 @@ Even after running sudo apt update, the installation would not proceed.
 To resolve this, I switched to Windows Terminal on my host machine and SSH’d into the EC2 instance from there:
 From Windows Terminal, the installation worked successfully and i ran the following:
 
-`sudo apt update`
-`sudo apt install nginx -y`
-`sudo systemctl start nginx`
-`sudo systemctl enable nginx`
-`sudo systemctl status nginx`
+>`sudo apt update`
+
+>`sudo apt install nginx -y`
+
+>`sudo systemctl start nginx`
+
+>`sudo systemctl enable nginx`
+
+>`sudo systemctl status nginx`
+
 Once I confirmed that NGINX was active and running, I returned to my Ubuntu VM to continue working on the assignment and tested to see if it was active which it was:
 
 SCREENSHOT
@@ -117,7 +124,7 @@ SCREENSHOT
 After installing NGINX and ensuring it was running, I needed to confirm that my domain was correctly pointing to my EC2 instance.  
 I performed a **DNS lookup** using the following commands:
 
-```bash
+>```bash
 nslookup nginx.ahmedo.co.uk
 dig nginx.ahmedo.co.uk
 curl nginx.ahmedo.co.uk
@@ -141,7 +148,7 @@ After confirming that the default NGINX page was loading, I replaced it with my 
 
 First, I removed the default NGINX page:
 
-`sudo rm /var/www/html/index.nginx-debian.html`
+>`sudo rm /var/www/html/index.nginx-debian.html`
 
 Then, I created my custom page at `/var/www/html/index.html` with the following content displayed on the website:
 
