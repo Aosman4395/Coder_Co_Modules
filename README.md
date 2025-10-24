@@ -9,6 +9,8 @@ Below is a list of the modules and what they contain:
 | Module | Description |
 |--------|-------------|
 | `Bash/` | Bash scripting exercises 
+| `Networking-Assignment/` | My network assignment
+
 
 ## How to Use This Repo
 
