@@ -67,8 +67,11 @@ Even after updating the security group, I still could not connect.
 After further investigation, I discovered that my **Network ACL (NACL)** was also blocking SSH traffic.  
 I updated the NACL rules to allow inbound and outbound connections for **port 22** as well.  
 
-🖼️ *Screenshot 1:* `security_groups.png` (Shows the security group inbound rules allowing SSH)
-🖼️**Screenshot 2:* `nacl_rules.png` (Shows the NACL rules configured to allow SSH)
+'/home/ahmedo/Coder_co_Modules/Networking-Assigment/screenshots/security_groups.png' 
+ (Shows the security group inbound rules allowing SSH)
+🖼
+'/home/ahmedo/Coder_co_Modules/Networking-Assigment/screenshots/nacl_rules.png' 
+ (Shows the NACL rules configured to allow SSH)
 
 
 Once both were updated, I successfully SSH’d into my EC2 instance using:
@@ -78,11 +81,6 @@ It’s important to follow this page carefully to ensure your connection works p
 
 ⚠️  Make sure to give your .pem file the correct permissions before connecting:
 
-```bash
-chmod 400 n-assignment.pem
+`chmod 400 n-assignment.pem`
 
-```bash
-ssh -i n-assignment.pem ubuntu@<public-ip-address>
-
-🖼️ *Screenshot:* `ec2_connect_page.png` (Shows the EC2 Connect instructions)
-
+`ssh -i n-assignment.pem ubuntu@<public-ip-address>`
