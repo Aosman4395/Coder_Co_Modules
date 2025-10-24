@@ -72,11 +72,11 @@ I updated the NACL rules to allow inbound and outbound connections for **port 22
 
 This is the inbound rules which can be found from clickng the security groups:
 
-![inbound](screenshots/security_groups.npg)
+![inbound](screenshots/security_groups.png)
 
 This is my Nacl rules allowing ssh which was not allowing me to ssh into the instance before:
 
-![nacl](screenshots/nacl_rules.npg)
+![nacl](screenshots/nacl_rules.png)
 
 Once both were updated, I successfully SSH’d into my EC2 instance using:
 
@@ -91,11 +91,11 @@ It’s important to follow this page carefully to ensure your connection works p
 
 This is the page you should see and following the instructions gave me access:
 
-![connect](screenshots/ec2_instance_page.npg)
+![connect](screenshots/ec2_instance_page.png)
 
 This is the results i got indicating i was connected:
 
-![connect](screenshots/ssh_connection.npg)
+![connect](screenshots/ssh_connection.png)
 
 ## 🖥️ Step 4 — Installing NGINX on the EC2 Instance
 
@@ -127,7 +127,7 @@ From Windows Terminal, the installation worked successfully and i ran the follow
 
 Once I confirmed that NGINX was active and running, I returned to my Ubuntu VM to continue working on the assignment and tested to see if it was active which it was:
 
-![connect](screenshots/nginx_status.npg)
+![connect](screenshots/nginx_status.png)
 
 
 ## 🔍 Step 5 — Testing the Domain Connection
@@ -143,7 +143,7 @@ I performed a **DNS lookup** using the following commands:
 
 This result below indicated to me that my domain was active:
 
-![connect](screenshots/domain_test.npg)
+![connect](screenshots/domain_test.png)
 
 
 ## 🌐 Step 6 — Accessing the NGINX Page via Domain
@@ -167,7 +167,7 @@ First, I removed the default NGINX page:
 
 Then, I created my custom page at `/var/www/html/index.html` with the following content displayed on the website:
 
-![connect](screenshots/custom_page.npg)
+![connect](screenshots/custom_page.png)
 
 
 ## 🧠 What I Learned
