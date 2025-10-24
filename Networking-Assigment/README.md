@@ -32,7 +32,8 @@ I selected the following configuration:
 Once launched, my instance was up and running successfully.  
 At this stage, it’s important to **take note of the Public IPv4 Address**, as it will be used to connect your EC2 instance to your custom domain.
 
-🖼️ *Screenshot:* `ec2_connect_page.png` (Shows the instance running and the public IP address)
+![Instance](/home/ahmedo/Coder_co_Modules/Networking-Assigment/screenshots/ec2_connect_page.png)
+
 ## 🌐 Step 2 — Purchasing the Domain and Configuring DNS
 
 For this step, I purchased my own domain from **Namecheap** — `ahmedo.co.uk`.  
