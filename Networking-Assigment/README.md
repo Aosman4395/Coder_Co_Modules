@@ -32,7 +32,9 @@ I selected the following configuration:
 Once launched, my instance was up and running successfully.  
 At this stage, it’s important to **take note of the Public IPv4 Address**, as it will be used to connect your EC2 instance to your custom domain.
 
-![Instance](screenshots/ec2_connect_page.png)
+Once your instance is up and running it should show like below and keep a note of you **Public IP address** :
+
+![Instance](screenshots/ec2_instance.png)
 
 ## 🌐 Step 2 — Purchasing the Domain and Configuring DNS
 
@@ -49,7 +51,7 @@ In the Namecheap DNS settings:
 
 This A record connects my domain to my EC2 instance, allowing anyone who visits the domain to reach the NGINX web server hosted on my instance.
 
-🖼️ *Screenshot:* `namecheap_dns.png` (Shows the Namecheap DNS A record setup)
+![dns](screenshots/namecheap_dns.png)
 
 ## 🔐 Step 3 — Connecting to the EC2 Instance (SSH Access)
 
@@ -68,12 +70,13 @@ Even after updating the security group, I still could not connect.
 After further investigation, I discovered that my **Network ACL (NACL)** was also blocking SSH traffic.  
 I updated the NACL rules to allow inbound and outbound connections for **port 22** as well.  
 
-'/home/ahmedo/Coder_co_Modules/Networking-Assigment/screenshots/security_groups.png' 
- (Shows the security group inbound rules allowing SSH)
-🖼
-'/home/ahmedo/Coder_co_Modules/Networking-Assigment/screenshots/nacl_rules.png' 
- (Shows the NACL rules configured to allow SSH)
+This is the inbound rules which can be found from clickng the security groups:
 
+![inbound](screenshots/security_groups.npg)
+
+This is my Nacl rules allowing ssh which was not allowing me to ssh into the instance before:
+
+![nacl](screenshots/nacl_rules.npg)
 
 Once both were updated, I successfully SSH’d into my EC2 instance using:
 
@@ -86,7 +89,13 @@ It’s important to follow this page carefully to ensure your connection works p
 
 >`ssh -i n-assignment.pem ubuntu@<public-ip-address>`
 
-screenshot of the connect page
+This is the page you should see and following the instructions gave me access:
+
+![connect](screenshots/ec2_instance_page.npg)
+
+This is the results i got indicating i was connected:
+
+![connect](screenshots/ssh_connection.npg)
 
 ## 🖥️ Step 4 — Installing NGINX on the EC2 Instance
 
@@ -118,7 +127,8 @@ From Windows Terminal, the installation worked successfully and i ran the follow
 
 Once I confirmed that NGINX was active and running, I returned to my Ubuntu VM to continue working on the assignment and tested to see if it was active which it was:
 
-SCREENSHOT
+![connect](screenshots/nginx_status.npg)
+
 
 ## 🔍 Step 5 — Testing the Domain Connection
 
@@ -131,7 +141,10 @@ I performed a **DNS lookup** using the following commands:
 
 >`curl nginx.ahmedo.co.uk`
 
-SCREENSHOT
+This result below indicated to me that my domain was active:
+
+![connect](screenshots/domain_test.npg)
+
 
 ## 🌐 Step 6 — Accessing the NGINX Page via Domain
 
@@ -142,7 +155,7 @@ Once the DNS was configured, I opened a web browser and searched for my domain:
 The page loaded successfully, confirming that my domain was correctly pointing to the EC2 instance.  
 At this stage, the website displayed the **default NGINX page**, which indicated that NGINX was running properly, but I still needed to replace it with my **custom page**.
 
-![Default NGINX Page](screenshots/nginx_default_page.png)
+![Default NGINX Page](screenshots/nginx_default.png)
 
 ## 🎨 Step 7 — Creating a Custom Page
 
@@ -154,7 +167,8 @@ First, I removed the default NGINX page:
 
 Then, I created my custom page at `/var/www/html/index.html` with the following content displayed on the website:
 
-SCREENSHOT
+![connect](screenshots/custom_page.npg)
+
 
 ## 🧠 What I Learned
 
