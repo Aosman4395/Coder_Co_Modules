@@ -89,11 +89,11 @@ It’s important to follow this page carefully to ensure your connection works p
 
 >`ssh -i n-assignment.pem ubuntu@<public-ip-address>`
 
-This is the page you should see and following the instructions gave me access:
+This is the page you should see after following the instruction and it then gave me access:
 
-![connect](screenshots/ec2_instance_page.png)
+![connect](screenshots/ec2_connect_page.png)
 
-This is the results i got indicating i was connected:
+After running the ssh command this is the results i got indicating i was connected:
 
 ![connect](screenshots/ssh_connection.png)
 
@@ -112,8 +112,7 @@ or “file not found”
 
 Even after running sudo apt update, the installation would not proceed.
 
-To resolve this, I switched to Windows Terminal on my host machine and SSH’d into the EC2 instance from there:
-From Windows Terminal, the installation worked successfully and i ran the following:
+To resolve this, I switched to Windows Terminal on my host machine and SSH’d into the EC2 instance from the Windows Terminal, the installation worked successfully and i ran the following:
 
 >`sudo apt update`
 
@@ -180,3 +179,31 @@ Through installing NGINX, I learned how to manage web server software on a cloud
 
 Finally, creating a custom web page and replacing the default NGINX page reinforced my understanding of web server deployment, file management on a Linux server, and connecting a live webpage to a domain. Testing connectivity with tools like `nslookup`, `dig`, and `curl` solidified my grasp of networking fundamentals in practice.
 
+## 🏁 Final Thoughts
+
+This project gave me valuable hands-on experience with cloud infrastructure, networking, and web hosting.  
+By setting up an AWS EC2 instance, configuring DNS records, managing security settings, and deploying NGINX,  
+I developed a deeper understanding of how different components of cloud networking work together.
+
+Completing this assignment also strengthened my ability to troubleshoot real-world issues — from SSH access and NACL restrictions  
+to DNS propagation and web server configuration.
+
+---
+
+### 📂 Repository Information
+
+All related files and screenshots for this project are available here:  
+🔗 [GitHub Repository](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Networking-Assigment)
+
+---
+
+### 👏 Acknowledgement
+
+This project was completed as part of my Networking Assignment to demonstrate my understanding of  
+**AWS EC2**, **NGINX**, and **domain configuration**.
+
+---
+
+🌐 You can visit my live NGINX page here: [http://nginx.ahmedo.co.uk](http://nginx.ahmedo.co.uk)
+
+**© 2025 Ahmed O | Networking & Assignment**
