@@ -81,9 +81,9 @@ It’s important to follow this page carefully to ensure your connection works p
 
 ⚠️  Make sure to give your .pem file the correct permissions before connecting, make sure you are in the same directory as where your pem file is saved and the follow the instructions:
 
-`chmod 400 n-assignment.pem`
+>`chmod 400 n-assignment.pem`
 
-`ssh -i n-assignment.pem ubuntu@<public-ip-address>`
+>`ssh -i n-assignment.pem ubuntu@<public-ip-address>`
 
 screenshot of the connect page
 
@@ -124,11 +124,12 @@ SCREENSHOT
 After installing NGINX and ensuring it was running, I needed to confirm that my domain was correctly pointing to my EC2 instance.  
 I performed a **DNS lookup** using the following commands:
 
->```bash
-nslookup nginx.ahmedo.co.uk
-dig nginx.ahmedo.co.uk
-curl nginx.ahmedo.co.uk
-```
+>`nslookup nginx.ahmedo.co.uk`
+
+>`dig nginx.ahmedo.co.uk`
+
+>`curl nginx.ahmedo.co.uk`
+
 SCREENSHOT
 
 ## 🌐 Step 6 — Accessing the NGINX Page via Domain
