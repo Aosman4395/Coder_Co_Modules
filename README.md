@@ -1,29 +1,43 @@
 # Coder Co Modules
 
-Welcome! This repository contains all my learning from **Coder Co**, including exercises, assignments, projects, and notes. Each module has its own folder with detailed examples and instructions.
+Welcome to AhmedOs repository! 
+
+This repository contains all my learning from **Coder Co**, including exercises, assignments, projects, and notes. Each module has its own folder with detailed examples and instructions.
 
 ## Modules Overview
 
-Below is a list of the modules and what they contain:
+What You'll Find Here:
 
 | Module | Description |
 |--------|-------------|
-| [Bash/](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Bash) | Bash scripting exercises | 
-| [Networking-Assignment/](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Networking-Assigment) | My network assignment |
+| [Bash](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Bash) | Bash scripting exercises | 
+| [Networking](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Networking-Assignment) | My first assignment - EC2 NGINX Hosting |
+| [Docker](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Docker) | Check out my 3 apps created and containerised | 
+| [AWS](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/AWS) | Coming soon ... |
+| [Terraform](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Terraform) | Coming soon ... | 
+| [CI/CD](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/CI-CD) | Coming soon ... |
+| [Kubernetes](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Kubernetes) | Coming soon ... | 
 
 
-## How to Use This Repo
+## Purpose
 
-You can explore this repository in two ways:
+This repository serves as both a learning hub and a showcase of my growth in:
 
-### 1. View Online (No cloning required)
-- All files and folder structures are available directly on GitHub.  
-- You can read scripts, check assignments, and review projects without downloading anything.
+💻 Software development: Python, Flask, and scripting
 
-### 2. Run Scripts Locally
-If you want to execute the scripts or work with the files on your computer:
+🐧 Linux & Networking fundamentals
 
-1. **Clone the repository** to your local machine:
-```bash
-git clone git@github.com:YourUsername/CoderCoModules.git
+🐳 Containerization and DevOps tools: Docker, Kubernetes, Terraform
+
+☁️ Cloud technologies: AWS services and infrastructure automation
+
+⚙️ Continuous Integration / Continuous Deployment (CI/CD) pipelines
+
+🧠 Problem-solving, automation, and project organization
+
+## 📂 How to Explore
+
+You can:
+
+Browse each section directly on GitHub — each folder contains its own README with details.
 
