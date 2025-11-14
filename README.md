@@ -39,5 +39,5 @@ This repository serves as both a learning hub and a showcase of my growth in:
 
 You can:
 
-Browse each section directly on GitHub — each folder contains its own README with details.
+Browse each section directly on GitHub  each folder contains its own README with details.
 
