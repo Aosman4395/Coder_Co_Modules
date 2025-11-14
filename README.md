@@ -2,6 +2,8 @@
 
 Welcome to AhmedOs repository! 
 
+<h1 align="center">Hi 👋, Welcome to AhmedOs repository! 🫡  </h1>
+
 This repository contains all my learning from **Coder Co**, including exercises, assignments, projects, and notes. Each module has its own folder with detailed examples and instructions.
 
 ## Modules Overview
@@ -41,8 +43,6 @@ You can:
 
 Browse each section directly on GitHub  each folder contains its own README with details.
 
-<h1 align="center">Hi 👋, I'm Ahamed Osman</h1>
-<h3 align="center">A passionate frontend developer from India</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=aosman4395&label=Profile%20views&color=0e75b6&style=flat" alt="aosman4395" /> </p>
 
