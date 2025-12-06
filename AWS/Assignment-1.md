@@ -48,7 +48,7 @@ Next, an Elastic IP address was allocated, which provides a permanent public IP 
 
 Finally, a NAT Gateway was created inside the Public Subnet and assigned the Elastic IP. This ensures that resources in the Private Subnet can access the internet securely.
 
-### Why this is important
+### Why this is important?
 
 The Internet Gateway is essential for enabling public-facing services to communicate with external networks such as user devices, websites, and software repositories. Without the IGW, no instance can reach or be reached from the internet.
 
@@ -65,7 +65,7 @@ IGW created and attatched to VPC
 
 Elastic IP created and assigned 
 
-![IGW](screenshots/Elastic-asso.png)
+![IGW](screenshots/Elatsic-asso.png)
 
 NAT Gateway created in public subnet
 
@@ -94,7 +94,6 @@ By using two separate route tables:
 - Public systems can be accessed from the internet when needed
 - Private systems remain isolated from direct external traffic
 - Outbound access from the Private Subnet is still possible without exposing it
-- This creates a **secure multi-tier network**, which is the foundation of enterprise cloud architecture
 
 This routing configuration enforces strict security boundaries while allowing functionality required for cloud workloads.
 
