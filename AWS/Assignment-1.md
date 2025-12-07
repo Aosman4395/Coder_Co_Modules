@@ -1,4 +1,4 @@
-# AWS Custom VPC with Secure Public & Private Subnet with Internet and Internal EC2 Access**
+# AWS Custom VPC with Secure Public & Private Subnet with Internet and Internal EC2 Access
 
 ---
 
