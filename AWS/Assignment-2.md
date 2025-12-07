@@ -155,24 +155,27 @@ Healthy status in Target Group
 
 ## Conclusion
 
-The results shown in the Target Group and ALB configuration confirm that the entire setup was completed successfully.  
-The screenshot clearly shows that the Application Load Balancer is forwarding traffic through the HTTP listener on port 80 to the correct Target Group.  
+The results shown in the Target Group and ALB configuration confirm that the entire setup was completed successfully. The Application Load Balancer is forwarding traffic through the HTTP listener on port 80 to the correct Target Group.  
+
 Both EC2 instances are registered as targets and are reporting a **Healthy** status which means the health checks on path / are working correctly and the servers are responding successfully.  
 
 This demonstrates that:  
-The instances are deployed correctly in a Multi AZ configuration.  
-The ALB is handling all incoming traffic as designed.  
-Security Groups are enforced correctly since the EC2 instances are only reachable through the ALB.  
-Load balancing is functioning and distributing traffic across both instances.  
 
-Overall this confirms that a secure scalable and highly available architecture has been deployed following AWS best practices.  
-The application is now resilient against failure in a single Availability Zone and the traffic flow is properly controlled and protected through the ALB.  
+- The instances are deployed correctly in a Multi AZ configuration.  
+ 
+- The ALB is handling all incoming traffic as designed.  
+
+- Security Groups are enforced correctly since the EC2 instances are only reachable through the ALB.  
+
+- Load balancing is functioning and distributing traffic across both instances.  
+
+Overall this confirms that a secure scalable and highly available architecture has been deployed following AWS best practices. The application is now resilient against failure in a single Availability Zone and the traffic flow is properly controlled and protected through the ALB.  
 
 📸 Screenshot:
 
 Successful ALB and Target Group configuration  
 
-![ALB Setup](screenshots/alb-active.png)
+![ALB Setup](screenshots-2/alb-active.png)
 
 
 
