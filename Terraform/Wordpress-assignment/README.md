@@ -68,7 +68,7 @@ A key pair can be added for SSH access, but it is not strictly required for the 
 📸 **Screenshot:**  
 This screenshot shows the EC2 instance resource configuration in Terraform.
 
-![ec2-config](screenshots/03-ec2-config.png)
+![ec2-config](screenshots/03-ec2-instance-config.png)
 
 # **3️⃣.1 Step 3.1 — Use of Variables and Output**
 
@@ -121,7 +121,7 @@ This automation ensures that as soon as the EC2 instance finishes launching, Wor
 📸 **Screenshot:**  
 This screenshot shows the user data script embedded inside the EC2 configuration.
 
-![user-data](screenshots/04-user-data.png)
+![user-data](screenshots/04-user-data-script.png)
 
 
 # **5️⃣ Step 5 — Run Terraform Commands**
@@ -164,7 +164,7 @@ Terraform created:
 
 This screenshot shows the successful `terraform apply` output.
 
-![terraform-apply](screenshots/06-terraform-apply-success.png)
+![terraform-apply](screenshots/06-terraform-apply.png)
 
 # **6️⃣ Step 6 — Confirm Resources in the AWS Console**
 
