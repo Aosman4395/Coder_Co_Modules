@@ -16,7 +16,7 @@ What You'll Find Here:
 | [Networking](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Networking-Assignment) | My first assignment - EC2 NGINX Hosting |
 | [Docker](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Docker) | Check out my 3 apps created and containerised | 
 | [AWS](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/AWS) | Check out my 2 AWS assignments |
-| [Terraform](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Terraform) | Coming soon ... | 
+| [Terraform](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Terraform) | Check out my word press assignment | 
 | [CI/CD](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/CI-CD) | Coming soon ... |
 | [Kubernetes](https://github.com/Aosman4395/Coder_Co_Modules/tree/main/Kubernetes) | Coming soon ... | 
 
