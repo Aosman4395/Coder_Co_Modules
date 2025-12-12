@@ -29,6 +29,7 @@ COPY --from=builder /install /usr/local
 # Copy all your app code (includes app.py, templates, static, etc.)
 COPY . .
 
+# Expose your Flask port
 EXPOSE 5002
 
 # Run the Flask app

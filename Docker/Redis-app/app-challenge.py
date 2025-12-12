@@ -9,8 +9,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Welcome to the docker challenge!<br> ' \
-    'To see how much you have visited the site search http://127.0.0.1:5002/count'
+    return 'Welcome to the docker challenge!<br>' \
+           'To see how much you have visited the site, ' \
+           '<a href="http://127.0.0.1:5002/count">Click here!</a>'
 
 @app.route('/count')
 def count():
