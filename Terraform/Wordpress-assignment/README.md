@@ -20,7 +20,7 @@ In this case, I configured the provider to use **AWS in the eu-west-2 (London)**
 
 This screenshot shows the provider block and the successful initialization of Terraform.
 
-![provider](screenshots/01-provider-setup.png.png)
+![provider](screenshots/01-provider-setup.png)
 
 # **2️⃣ Step 2 — Create a Security Group**
 
